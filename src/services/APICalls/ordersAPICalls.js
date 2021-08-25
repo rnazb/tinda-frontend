@@ -56,9 +56,6 @@ export const placeOrder = async (orderList) => {
   return await axios({
     method: 'POST',
     url: `${callURL}:4000/api/orders`,
-    headers: {
-      'Content-Type': 'application/json'
-    },
     data: orderList,
     withCredentials: true
   });
