@@ -104,8 +104,7 @@ export const addProduct = async (formData) => {
     url: `${callURL}/api/products/`,
     data: formData,
     headers: {
-      'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': `${callURL}`,
+      'Content-Type': 'multipart/form-data'
     },
     withCredentials: true
   });
