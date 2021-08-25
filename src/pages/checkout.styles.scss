@@ -1,0 +1,14 @@
+#checkout-container {
+  min-height: 90vh;
+  padding-top: 3rem;
+}
+
+.checkout-card {
+  margin-bottom: 6rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  & #order-button {
+    float: right;
+    margin-bottom: 1rem;
+  }
+}

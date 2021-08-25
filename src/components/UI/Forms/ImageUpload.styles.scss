@@ -1,0 +1,33 @@
+.image-file-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ececec;
+  border: 1px;
+  border-radius: 5px;
+  padding: 4rem;
+
+  & .dropzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    border: 2px dashed rgb(190, 190, 190);
+    border-style: dashed;
+    min-height: 8rem;
+    margin-bottom: 2rem;
+
+    & p {
+      color: grey;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.thumbs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  border: 2px dashed rgb(190, 190, 190);
+}

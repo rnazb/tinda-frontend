@@ -1,0 +1,20 @@
+.update-quantity-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & .amount-display {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.remove-item-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin: auto;
+  }
+}

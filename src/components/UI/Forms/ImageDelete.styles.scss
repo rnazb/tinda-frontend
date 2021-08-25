@@ -1,0 +1,22 @@
+.delete-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+#image-delete-btn {
+  float: right;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#existing-image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #ececec;
+  border: 1px;
+  border-radius: 5px;
+  padding: 4rem;
+}

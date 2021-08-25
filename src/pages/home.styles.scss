@@ -1,0 +1,138 @@
+#home-container {
+  min-height: 100vh;
+  margin: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 100%;
+
+  .col {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+#hero-block {
+  display: flex;
+  height: 100%;
+  margin-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #ffffff;
+
+  #header-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main-header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  #main-blurb {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #main-link {
+    margin-left: 35%;
+    font-size: 1.25rem;
+    font-weight: bolder;
+
+    a {
+      color: #4f8f81;
+    }
+  }
+
+  #welcome-word {
+    color: #f77205;
+  }
+
+  .hero-column {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 1304px) {
+    #main-header {
+      font-size: 4rem;
+    }
+  }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 8rem 0;
+}
+
+#features-block {
+  margin: 3rem 0;
+
+  .features-column {
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+  }
+
+  .features-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 2rem 3rem;
+    box-shadow: 0 4px 8px rgba(114, 114, 114, 0.2);
+
+    & svg {
+      padding: 2rem 0;
+      height: 75%;
+      max-height: 18rem;
+      min-height: 18rem;
+      width: 100%;
+    }
+
+    & h3 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .features-list {
+      margin: 1rem 0;
+      width: 100%;
+
+      & li {
+        text-align: left;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.screenshots-block {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  border-radius: 25px;
+
+  .screenshots-card {
+    box-shadow: 0 4px 8px rgba(114, 114, 114, 0.2);
+  }
+
+  & img {
+    max-height: 80%;
+  }
+
+  & h4 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 2rem 2rem 0 2rem;
+  }
+
+  & p {
+    font-size: 1.5rem;
+    margin: 2rem;
+  }
+}

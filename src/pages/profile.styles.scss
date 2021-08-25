@@ -1,0 +1,17 @@
+.transaction-history-card {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  & .order-item-card {
+    margin-bottom: 1rem;
+  }
+
+  & .order-completed {
+    color: green;
+  }
+
+  & .order-pending {
+    color: red;
+  }
+}

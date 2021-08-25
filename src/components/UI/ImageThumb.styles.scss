@@ -1,0 +1,25 @@
+.thumb {
+  display: inline-flex;
+  border-radius: 2px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.thumb-inner {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #cacaca;
+}
+
+.thumb-image {
+  display: block;
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  background-position: center;
+}

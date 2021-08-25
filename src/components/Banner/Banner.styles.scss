@@ -1,0 +1,25 @@
+#homepage-banner-overlay {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.jumbotron {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  height: 75vh;
+  background-image: url("https://images.unsplash.com/photo-1577374559080-cb697b79d8f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80");
+  background-position: bottom;
+
+  .homepage-banner {
+    margin-top: 30vh;
+    color: #ffffff;
+
+    & h1 {
+      font-size: 5rem;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center !important;
+}
+
+.products-display {
+  border: 1px;
+
+  .card {
+    display: flex;
+    color: black;
+    height: 350px;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 1px 12px rgba(114, 114, 114, 0.6);
+      transform: scale(1.01);
+      z-index: 1;
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+
+    .card-img {
+      height: 50%;
+      object-fit: cover;
+      background-position: center;
+    }
+
+    .card-body {
+      padding-bottom: 0;
+    }
+
+    .ratings {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.backdrop-styles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#delete-confirm-modal {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  left: 25%;
+  align-items: center;
+  text-align: center;
+}
+
+#product-add-modal {
+  display: flex;
+  flex-direction: column;
+
+  & button {
+    margin-top: 1rem;
+    float: right;
+  }
+}
+
+.modal-overlay-styles {
+  position: fixed;
+  top: 15vh;
+  left: 5%;
+  width: 90%;
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 4000;
+  animation: slide-down 300ms ease-out forwards;
+  margin-bottom: 3rem;
+
+  #delete-warning-para {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .modal {
+      width: 40rem;
+      left: calc(50% - 20rem);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

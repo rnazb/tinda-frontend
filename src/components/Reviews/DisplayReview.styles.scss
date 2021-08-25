@@ -1,0 +1,22 @@
+.card-review {
+  padding: 1rem;
+  border-radius: 0px !important;
+  border-top: 0 !important;
+  border-width: 1px;
+  border-color: #ececec !important;
+
+  p {
+    margin-top: 1rem;
+  }
+}
+
+.review-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#review-delete-btn {
+  float: right;
+}

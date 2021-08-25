@@ -1,0 +1,36 @@
+.custom-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.custom-label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.custom-input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.custom-textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.invalid-input {
+  position: relative;
+  border-color: red;
+}
+
+.invalid-message {
+  font-size: 0.75rem;
+  color: red;
+}
