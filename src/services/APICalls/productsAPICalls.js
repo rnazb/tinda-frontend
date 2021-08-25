@@ -114,7 +114,7 @@ export const addProduct = async (formData) => {
 export const editProduct = async (productData, productId) => {
   return await axios({
     method: 'PUT',
-    url: `${callURL}/api/products/${productId}/`,
+    url: `${callURL}/api/products/${productId}`,
     data: productData,
     headers: {
       'Content-Type': 'application/json'

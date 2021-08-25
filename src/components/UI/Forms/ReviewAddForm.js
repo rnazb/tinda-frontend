@@ -30,14 +30,14 @@ const ReviewAddForm = (props) => {
     setReviewBody(reviewBodyInput.target.value);
   };
 
-  const reviewData = {
-    authorId: localStorage.getItem('id'),
-    reviewedProductId: props.id,
-    rating: rating,
-    reviewBody: reviewBody
-  };
-
   const reviewSubmitHandler = () => {
+    const reviewData = {
+      authorId: localStorage.getItem('id'),
+      reviewedProductId: props.id,
+      rating: rating,
+      reviewBody: reviewBody
+    };
+
     if (isLoggedIn) {
       postReview(reviewData, props.id);
       setRating(0);
