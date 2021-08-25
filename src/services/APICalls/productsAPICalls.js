@@ -105,7 +105,7 @@ export const addProduct = async (formData) => {
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': `${callURL}`,
     },
     withCredentials: true
   });
