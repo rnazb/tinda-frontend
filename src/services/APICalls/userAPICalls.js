@@ -1,10 +1,11 @@
 import axios from "axios";
 
+const callURL = process.env.REACT_APP_SERVER || 'http://localhost:4000';
 
 export const registerUser = async (userData) => {
   return await axios({
     method: 'POST',
-    url: 'http://localhost:4000/api/users/register',
+    url: `${callURL}/api/users/register`,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -16,7 +17,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
   return await axios({
     method: 'POST',
-    url: 'http://localhost:4000/api/users/login',
+    url: `${callURL}/api/users/login`,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -28,7 +29,7 @@ export const loginUser = async (userData) => {
 export const logoutUser = (userId) => {
   return axios({
     method: 'GET',
-    url: 'http://localhost:4000/api/users/logout',
+    url: `${callURL}/api/users/logout`,
     withCredentials: true
   });
 };

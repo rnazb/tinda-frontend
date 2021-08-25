@@ -1,10 +1,11 @@
 import axios from 'axios';
 
+const callURL = process.env.REACT_APP_SERVER || 'http://localhost:4000';
 
 export const getProducts = async () => {
   const response = await axios({
     method: 'GET',
-    url: 'http://localhost:4000/api/products/',
+    url: `${callURL}/api/products/`,
     withCredentials: true
   });
 
@@ -30,7 +31,7 @@ export const getProducts = async () => {
 export const getSingleProduct = async (productId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/products/${productId}`,
+    url: `${callURL}/api/products/${productId}`,
     withCredentials: true
   });
 
@@ -40,7 +41,7 @@ export const getSingleProduct = async (productId) => {
 export const getShopIndex = async (shopId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/products/shop/${shopId}`,
+    url: `${callURL}/api/products/shop/${shopId}`,
     withCredentials: true
   });
   return response.data;
@@ -49,7 +50,7 @@ export const getShopIndex = async (shopId) => {
 export const getShopProducts = async (shopId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/products/shop/${shopId}`,
+    url: `${callURL}/api/products/shop/${shopId}`,
     withCredentials: true
   });
   const productsData = response.data;
@@ -91,7 +92,7 @@ export const getShopProducts = async (shopId) => {
 export const getAverageSellerRating = async (shopId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/products/shop/${shopId}/averagerating`,
+    url: `${callURL}/api/products/shop/${shopId}/averagerating`,
     withCredentials: true
   });
   return response.data;
@@ -100,7 +101,7 @@ export const getAverageSellerRating = async (shopId) => {
 export const addProduct = async (formData) => {
   return await axios({
     method: 'POST',
-    url: 'http://localhost:4000/api/products/',
+    url: `${callURL}/api/products/`,
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data'
@@ -113,7 +114,7 @@ export const addProduct = async (formData) => {
 export const editProduct = async (productData, productId) => {
   return await axios({
     method: 'PUT',
-    url: `http://localhost:4000/api/products/${productId}`,
+    url: `${callURL}/api/products/${productId}`,
     data: productData,
     withCredentials: true
   });
@@ -122,7 +123,7 @@ export const editProduct = async (productData, productId) => {
 export const deleteProduct = async (productId) => {
   return await axios({
     method: 'DELETE',
-    url: `http://localhost:4000/api/products/${productId}`,
+    url: `${callURL}/api/products/${productId}`,
     withCredentials: true
   });
 };
@@ -130,7 +131,7 @@ export const deleteProduct = async (productId) => {
 export const addProductImages = async (formData, productId) => {
   return await axios({
     method: 'POST',
-    url: `http://localhost:4000/api/products/${productId}/images/upload`,
+    url: `${callURL}/api/products/${productId}/images/upload`,
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data'
@@ -143,7 +144,7 @@ export const deleteProductImages = async (data, productId) => {
   const deleteImages = true;
   return await axios({
     method: 'DELETE',
-    url: `http://localhost:4000/api/products/${productId}/images/delete`,
+    url: `${callURL}/api/products/${productId}/images/delete`,
     data: { data, productId, deleteImages },
     withCredentials: true
   });

@@ -1,10 +1,11 @@
 import axios from "axios";
 
+const callURL = process.env.REACT_APP_SERVER || 'http://localhost:4000';
 
 export const getShopOrders = async (shopId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/orders/shop/${shopId}`,
+    url: `${callURL}/api/orders/shop/${shopId}`,
     withCredentials: true
   });
   const ordersData = response.data;
@@ -31,7 +32,7 @@ export const getShopOrders = async (shopId) => {
 export const getTransactionHistory = async (userId) => {
   const response = await axios({
     method: 'GET',
-    url: `http://localhost:4000/api/orders/profile/${userId}`,
+    url: `${callURL}/api/orders/profile/${userId}`,
     withCredentials: true
   });
 
@@ -54,7 +55,7 @@ export const getTransactionHistory = async (userId) => {
 export const placeOrder = async (orderList) => {
   return await axios({
     method: 'POST',
-    url: 'http://localhost:4000/api/orders',
+    url: `${callURL}:4000/api/orders`,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -67,7 +68,7 @@ export const placeOrder = async (orderList) => {
 export const fulfillOrder = async (orderId, orderItemId) => {
   return await axios({
     method: "PUT",
-    url: `http://localhost:4000/api/orders/shop/${orderId}/fulfill`,
+    url: `${callURL}/api/orders/shop/${orderId}/fulfill`,
     data: {
       orderDetailId: orderItemId
     },

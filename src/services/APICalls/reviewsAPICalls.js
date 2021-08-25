@@ -1,10 +1,11 @@
 import axios from 'axios';
 
+const callURL = process.env.REACT_APP_SERVER || 'http://localhost:4000';
 
 export const postReview = async (reviewData, productId) => {
   return await axios({
     method: 'POST',
-    url: `http://localhost:4000/api/products/${productId}/reviews`,
+    url: `${callURL}/api/products/${productId}/reviews`,
     data: reviewData,
     withCredentials: true
   });
@@ -13,7 +14,7 @@ export const postReview = async (reviewData, productId) => {
 export const deleteReview = async (productId, reviewId) => {
   return await axios({
     method: 'DELETE',
-    url: `http://localhost:4000/api/products/${productId}/reviews/${reviewId}`,
+    url: `${callURL}/api/products/${productId}/reviews/${reviewId}`,
     withCredentials: true
   });
 };
