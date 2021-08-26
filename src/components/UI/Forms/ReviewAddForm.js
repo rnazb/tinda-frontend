@@ -31,6 +31,7 @@ const ReviewAddForm = (props) => {
   };
 
   const reviewSubmitHandler = async () => {
+
     const reviewData = {
       authorId: localStorage.getItem('id'),
       reviewedProductId: props.id,
