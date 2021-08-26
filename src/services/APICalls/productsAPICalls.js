@@ -116,9 +116,6 @@ export const editProduct = async (productData, productId) => {
     method: 'PUT',
     url: `${callURL}/api/products/${productId}`,
     data: productData,
-    headers: {
-      'Content-Type': 'application/json'
-    },
     withCredentials: true
   });
 };

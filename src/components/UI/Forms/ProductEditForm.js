@@ -71,15 +71,15 @@ const ProductEditForm = (props) => {
     }
   };
 
+  const productData = {
+    name: productName,
+    description: productDescription,
+    price: productPrice
+  };
+
   const editProductHandler = (event) => {
     event.preventDefault();
     setIsLoading(true);
-
-    const productData = {
-      name: productName,
-      description: productDescription,
-      price: productPrice
-    };
 
     editProduct(productData, id);
     setIsLoading(false);
