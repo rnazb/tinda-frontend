@@ -13,6 +13,17 @@ import UserContext from '../store/user-context';
 
 import './login.styles.scss';
 
+import { css } from '@emotion/react';
+import BeatLoader from 'react-spinners/BeatLoader';
+
+const override = css`
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  padding: 8rem 0;
+  border-color: red;
+`;
+
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
 
@@ -21,6 +32,7 @@ const Login = () => {
   const [enteredPassword, setEnteredPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
   const [willRedirect, setWillRedirect] = useState(false);
 
@@ -60,6 +72,7 @@ const Login = () => {
 
   const loginHandler = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const loginResponse = await loginUser(userData);
 
     setUser({
@@ -74,6 +87,7 @@ const Login = () => {
 
     setEnteredUsername('');
     setEnteredPassword('');
+    setIsLoading(false);
     setDidSubmit(true);
     setWillRedirect(true);
   };
@@ -91,39 +105,43 @@ const Login = () => {
         <Container id="login-container">
           <Card className="login-form">
             <h1>Login Page!</h1>
-            <form onSubmit={loginHandler}>
-              <Input
-                label="Username"
-                input={{
-                  type: 'text',
-                  id: 'username',
-                  value: `${enteredUsername}`,
-                  onChange: usernameChangeHandler,
-                  onBlur: validateUsernameHandler
-                }}
-                isValid={usernameIsValid}
-                validationMessage="Please enter a valid username"
-              />
-              <Input
-                label="Password"
-                input={{
-                  type: 'password',
-                  id: 'password',
-                  value: `${enteredPassword}`,
-                  onChange: passwordChangeHandler,
-                  onBlur: validatePasswordHandler
-                }}
-                isValid={passwordIsValid}
-                validationMessage="Please enter a valid password"
-              />
-              <Button
-                className="primary-btn"
-                type="submit"
-                onClick={clickHandler}
-              >
-                Login
-              </Button>
-            </form>
+            {isLoading ?
+              <BeatLoader css={override} />
+              :
+              <form onSubmit={loginHandler}>
+                <Input
+                  label="Username"
+                  input={{
+                    type: 'text',
+                    id: 'username',
+                    value: `${enteredUsername}`,
+                    onChange: usernameChangeHandler,
+                    onBlur: validateUsernameHandler
+                  }}
+                  isValid={usernameIsValid}
+                  validationMessage="Please enter a valid username"
+                />
+                <Input
+                  label="Password"
+                  input={{
+                    type: 'password',
+                    id: 'password',
+                    value: `${enteredPassword}`,
+                    onChange: passwordChangeHandler,
+                    onBlur: validatePasswordHandler
+                  }}
+                  isValid={passwordIsValid}
+                  validationMessage="Please enter a valid password"
+                />
+                <Button
+                  className="primary-btn"
+                  type="submit"
+                  onClick={clickHandler}
+                >
+                  Login
+                </Button>
+              </form>
+            }
           </Card>
         </Container>
       </>

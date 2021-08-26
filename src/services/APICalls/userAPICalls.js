@@ -26,8 +26,8 @@ export const loginUser = async (userData) => {
   });
 };
 
-export const logoutUser = (userId) => {
-  return axios({
+export const logoutUser = async (userId) => {
+  return await axios({
     method: 'GET',
     url: `${callURL}/api/users/logout`,
     withCredentials: true
