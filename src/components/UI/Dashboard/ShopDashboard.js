@@ -112,8 +112,8 @@ const ShopDashboard = () => {
       fourthQuarterRevenue += orderValue;
     }
 
-    const fulfillOrderHandler = () => {
-      fulfillOrder(id, orderItem.id);
+    const fulfillOrderHandler = async () => {
+      await fulfillOrder(id, orderItem.id);
     };
 
     return (

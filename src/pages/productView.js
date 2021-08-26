@@ -132,10 +132,10 @@ const ProductView = () => {
   }, [productReviews, setProductReviews, product.reviews]);
 
   const reviewsList = productReviews?.reverse().map(item => {
-    const deleteReviewHandler = () => {
+    const deleteReviewHandler = async () => {
       const reviewIndex = productReviews.indexOf(item);
       productReviews.splice(reviewIndex, 1);
-      deleteReview(id, item._id);
+      await deleteReview(id, item._id);
     };
 
     return (

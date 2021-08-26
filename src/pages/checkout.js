@@ -39,8 +39,8 @@ const Checkout = () => {
     localStorage.setItem('cart-items', JSON.stringify(cartCtx.cartItems));
   };
 
-  const placeOrderHandler = () => {
-    placeOrder(orderList);
+  const placeOrderHandler = async () => {
+    await placeOrder(orderList);
     cartCtx.unsetCart();
   };
 
