@@ -30,8 +30,12 @@ const ReviewAddForm = (props) => {
     setReviewBody(reviewBodyInput.target.value);
   };
 
-  const reviewSubmitHandler = (event) => {
+  const clickHandler = (event) => {
     event.preventDefault();
+    reviewSubmitHandler();
+  };
+
+  const reviewSubmitHandler = () => {
 
     const reviewData = {
       authorId: localStorage.getItem('id'),
@@ -52,7 +56,7 @@ const ReviewAddForm = (props) => {
   return (
     <>
       <h3>Leave a Review</h3>
-      <Form onSubmit={reviewSubmitHandler}>
+      <Form>
         <Form.Group controlId="ControlTextarea1">
           <Rating onClick={ratingChangeHandler} ratingValue={rating} />
           <Form.Control
@@ -63,7 +67,14 @@ const ReviewAddForm = (props) => {
           />
         </Form.Group>
         <div id="review-add-btn">
-          <Button className="primary-btn" type="submit" disabled={!isLoggedIn}>Post Review</Button>
+          <Button
+            className="primary-btn"
+            type="submit"
+            disabled={!isLoggedIn}
+            onClick={clickHandler}
+          >
+            Post Review
+          </Button>
           {
             !isLoggedIn && <span>Please log in to post a review</span>
           }
