@@ -37,11 +37,11 @@ const ReviewAddForm = (props) => {
     reviewBody: reviewBody
   };
 
-  const reviewSubmitHandler = (event) => {
+  const reviewSubmitHandler = async (event) => {
     event.preventDefault();
 
     if (isLoggedIn) {
-      postReview(reviewData, props.id);
+      await postReview(reviewData, props.id);
       setRating(0);
       setReviewBody('');
       window.location.reload(false);
