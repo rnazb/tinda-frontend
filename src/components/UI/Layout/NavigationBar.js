@@ -14,10 +14,10 @@ const NavigationBar = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const logoutHandler = (event) => {
+  const logoutHandler = async (event) => {
     event.preventDefault();
 
-    logoutUser();
+    await logoutUser();
 
     setUser({
       id: null,
