@@ -71,7 +71,8 @@ const ProductEditForm = (props) => {
     }
   };
 
-  const editProductHandler = () => {
+  const editProductHandler = (event) => {
+    event.preventDefault();
     setIsLoading(true);
 
     const productData = {

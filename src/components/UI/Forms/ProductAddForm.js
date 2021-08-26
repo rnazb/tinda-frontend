@@ -26,6 +26,7 @@ const ProductAddForm = (props) => {
   const [productName, setProductName] = useState('');
   const [nameIsValid, setNameIsValid] = useState();
   const [productDescription, setProductDescription] = useState('');
+  const [descriptionIsValid, setDescriptionIsValid] = useState();
   const [productPrice, setProductPrice] = useState(0);
   const [priceIsValid, setPriceIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
@@ -36,18 +37,19 @@ const ProductAddForm = (props) => {
 
   useEffect(() => {
     setNameIsValid(true);
+    setDescriptionIsValid(true);
     setPriceIsValid(true);
   }, []);
 
   useEffect(() => {
     const identifier = setTimeout(() => {
-      setFormIsValid(nameIsValid && priceIsValid);
+      setFormIsValid(nameIsValid && priceIsValid && descriptionIsValid);
     }, 500);
 
     return () => {
       clearTimeout(identifier);
     };
-  }, [nameIsValid, priceIsValid]);
+  }, [nameIsValid, descriptionIsValid, priceIsValid]);
 
   useEffect(() => {
     return () => { };
@@ -69,14 +71,19 @@ const ProductAddForm = (props) => {
     setNameIsValid(validationService.text(productName));
   };
 
+  const validateDescriptionHandler = () => {
+    setDescriptionIsValid(validationService.text(productDescription));
+  };
+
   const validatePriceHandler = () => {
     setPriceIsValid(validationService.number(productPrice));
   };
 
   const clickHandler = (event) => {
-    if (!productName && !productPrice) {
+    if (!productName && !productPrice && !productDescription) {
       event.preventDefault();
       setNameIsValid(false);
+      setDescriptionIsValid(false);
       setPriceIsValid(false);
     }
   };
@@ -143,6 +150,7 @@ const ProductAddForm = (props) => {
                       id: 'product-description',
                       value: `${productDescription}`,
                       onChange: descriptionChangeHandler,
+                      onBlur: validateDescriptionHandler,
                       rows: 5,
                       maxLength: 400
                     }}

@@ -30,7 +30,8 @@ const ReviewAddForm = (props) => {
     setReviewBody(reviewBodyInput.target.value);
   };
 
-  const reviewSubmitHandler = () => {
+  const reviewSubmitHandler = (event) => {
+    event.preventDefault();
 
     const reviewData = {
       authorId: localStorage.getItem('id'),
