@@ -35,7 +35,8 @@ const ReviewAddForm = (props) => {
     reviewSubmitHandler();
   };
 
-  const reviewSubmitHandler = () => {
+  const reviewSubmitHandler = (event) => {
+    event.preventDefault();
 
     const reviewData = {
       authorId: localStorage.getItem('id'),
@@ -48,6 +49,7 @@ const ReviewAddForm = (props) => {
       postReview(reviewData, props.id);
       setRating(0);
       setReviewBody('');
+      window.location.reload(false);
     } else {
       return;
     }
