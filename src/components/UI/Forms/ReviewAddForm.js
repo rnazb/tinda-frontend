@@ -30,7 +30,7 @@ const ReviewAddForm = (props) => {
     setReviewBody(reviewBodyInput.target.value);
   };
 
-  const reviewSubmitHandler = async () => {
+  const reviewSubmitHandler = () => {
 
     const reviewData = {
       authorId: localStorage.getItem('id'),
@@ -40,7 +40,7 @@ const ReviewAddForm = (props) => {
     };
 
     if (isLoggedIn) {
-      await postReview(reviewData, props.id);
+      postReview(reviewData, props.id);
       setRating(0);
       setReviewBody('');
     } else {

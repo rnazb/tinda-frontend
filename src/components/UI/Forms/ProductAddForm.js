@@ -94,7 +94,7 @@ const ProductAddForm = (props) => {
     files.forEach(file => URL.revokeObjectURL(file.preview));
   }, [files]);
 
-  const addProductHandler = async () => {
+  const addProductHandler = () => {
     setIsLoading(true);
 
     const productData = {
@@ -107,7 +107,7 @@ const ProductAddForm = (props) => {
     formData.append('details', JSON.stringify(productData));
     files.forEach(file => formData.append('files', file));
 
-    await addProduct(formData);
+    addProduct(formData);
     setIsLoading(false);
     setDidSend(true);
   };

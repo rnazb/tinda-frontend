@@ -7,6 +7,9 @@ export const postReview = async (reviewData, productId) => {
     method: 'POST',
     url: `${callURL}/api/products/${productId}/reviews`,
     data: reviewData,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     withCredentials: true
   });
 };
