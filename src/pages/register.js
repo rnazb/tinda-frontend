@@ -116,7 +116,7 @@ const Register = () => {
             <Input
               label="Email:"
               input={{
-                type: 'text',
+                type: 'email',
                 id: 'email',
                 value: `${email}`,
                 placeholder: 'Enter Email',
@@ -129,7 +129,7 @@ const Register = () => {
             <Input
               label="Password:"
               input={{
-                type: 'text',
+                type: 'password',
                 id: 'password',
                 value: `${password}`,
                 placeholder: 'Enter Password',
