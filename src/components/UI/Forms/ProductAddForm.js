@@ -154,6 +154,8 @@ const ProductAddForm = (props) => {
                       rows: 5,
                       maxLength: 400
                     }}
+                    isValid={descriptionIsValid}
+                    validationMessage="Please enter a valid description"
                   />
                   <Input
                     label="Product Price"

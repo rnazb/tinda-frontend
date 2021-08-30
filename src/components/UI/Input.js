@@ -8,7 +8,8 @@ export const Textarea = React.forwardRef((props, ref) => {
       <label className="custom-label" htmlFor={props.input.id}>
         {props.label}
       </label>
-      <textarea className="custom-textarea" ref={ref} {...props.input} />
+      <textarea className={`custom-textarea ${!props.isValid && "invalid-input"}`} ref={ref} {...props.input} />
+      {!props.isValid && <p className="invalid-message">{props.validationMessage}</p>}
     </div>
   );
 });
