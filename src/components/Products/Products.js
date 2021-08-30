@@ -73,22 +73,20 @@ const Products = () => {
   });
 
   return (
-    <Row>
-      {
-        isLoading ?
-          <BeatLoader css={override} />
-          :
-          <>
-            {
-              productsList.length !== 0
-                ?
-                productsList
-                :
-                <p>No products found...</p>
-            }
-          </>
-      }
-    </Row>
+    isLoading ?
+      <BeatLoader css={override} />
+      :
+      <Row>
+        <>
+          {
+            productsList.length !== 0
+              ?
+              productsList
+              :
+              <p>No products found...</p>
+          }
+        </>
+      </Row>
   );
 };
 
