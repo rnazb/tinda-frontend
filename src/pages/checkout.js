@@ -11,12 +11,24 @@ import Button from '../components/UI/Button';
 
 import './checkout.styles.scss';
 
+import { css } from '@emotion/react';
+import BeatLoader from 'react-spinners/BeatLoader';
+
+const override = css`
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  padding: 8rem 0;
+  border-color: red;
+`;
+
 const Checkout = () => {
 
   const { user } = useContext(UserContext);
   const cartCtx = useContext(CartContext);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Trigger component update
 
@@ -39,9 +51,15 @@ const Checkout = () => {
     localStorage.setItem('cart-items', JSON.stringify(cartCtx.cartItems));
   };
 
-  const placeOrderHandler = async () => {
+  const placeOrderHandler = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+
     await placeOrder(orderList);
     cartCtx.unsetCart();
+
+    setIsLoading(false);
+    window.location.replace('/market');
   };
 
   const lineItemsList = cartCtx.cartItems.map(item => {
@@ -114,42 +132,45 @@ const Checkout = () => {
           <h2>My Cart</h2>
         </Card.Header>
         {
-          cartCtx.cartItems.length > 0 ?
-            <>
-              <Table className="mb-0" bordered responsive>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Remove from cart</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {lineItemsList}
-                </tbody>
-              </Table>
-              <Card.Footer>
-                <h4>Total: PHP {cartCtx.cartTotal.toFixed(2)}</h4>
-                <form onSubmit={placeOrderHandler}>
-                  <Button
-                    id="order-button"
-                    className="primary-btn"
-                    type="submit"
-                    disabled={!isLoggedIn}
-                  >
-                    Order
-                  </Button>
-                  {
-                    !isLoggedIn && <span>Please log in to post a review</span>
-                  }
-                </form>
-              </Card.Footer>
-            </>
+          isLoading ?
+            <BeatLoader css={override} />
             :
-            <Card.Body>
-              <p>No products in cart...</p>
-            </Card.Body>
+            cartCtx.cartItems.length > 0 ?
+              <>
+                <Table className="mb-0" bordered responsive>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Amount</th>
+                      <th>Price</th>
+                      <th>Remove from cart</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lineItemsList}
+                  </tbody>
+                </Table>
+                <Card.Footer>
+                  <h4>Total: PHP {cartCtx.cartTotal.toFixed(2)}</h4>
+                  <form onSubmit={placeOrderHandler}>
+                    {
+                      !isLoggedIn && <span>Please log in to place an order</span>
+                    }
+                    <Button
+                      id="order-button"
+                      className="primary-btn"
+                      type="submit"
+                      disabled={!isLoggedIn}
+                    >
+                      Order
+                    </Button>
+                  </form>
+                </Card.Footer>
+              </>
+              :
+              <Card.Body>
+                <p>No products in cart...</p>
+              </Card.Body>
         }
       </Card>
     </Container>

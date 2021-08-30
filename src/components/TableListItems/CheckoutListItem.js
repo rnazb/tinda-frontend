@@ -12,7 +12,7 @@ const CheckoutListItem = (props) => {
       </td>
       <td className="update-quantity-field">
         <Button className="quantity-btn" onClick={props.onMinus}>-</Button>
-        <span className="amount-display">{props.amount}</span>
+        <span className="amount-display">PHP {props.amount.toFixed(2)}</span>
         <Button className="quantity-btn" onClick={props.onAdd}>+</Button>
       </td>
       <td>PHP {props.price.toFixed(2)}</td>

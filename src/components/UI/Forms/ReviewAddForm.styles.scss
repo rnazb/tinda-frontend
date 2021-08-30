@@ -1,3 +1,7 @@
 #review-add-btn {
   float: right;
+
+  & span {
+    padding: 0 1rem;
+  }
 }

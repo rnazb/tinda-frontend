@@ -64,6 +64,9 @@ const ReviewAddForm = (props) => {
           />
         </Form.Group>
         <div id="review-add-btn">
+          {
+            !isLoggedIn && <span>Please log in to post a review</span>
+          }
           <Button
             className="primary-btn"
             type="submit"
@@ -71,9 +74,6 @@ const ReviewAddForm = (props) => {
           >
             Post Review
           </Button>
-          {
-            !isLoggedIn && <span>Please log in to post a review</span>
-          }
         </div>
       </Form>
     </>

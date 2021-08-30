@@ -36,7 +36,7 @@ const Profile = () => {
         <tr key={orderDetail._id}>
           <td>{orderDetail.product.name}</td>
           <td>{orderDetail.quantity}</td>
-          <td>{amount}</td>
+          <td>PHP {amount.toFixed(2)}</td>
           <td className={`order-${orderDetail.status.toLowerCase()}`}>{orderDetail.status}</td>
           <td>{orderDetail.vendor.username}</td>
         </tr>

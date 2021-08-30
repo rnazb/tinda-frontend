@@ -105,42 +105,43 @@ const Login = () => {
         <Container id="login-container">
           <Card className="login-form">
             <h1>Login Page!</h1>
-            {isLoading ?
-              <BeatLoader css={override} />
-              :
-              <form onSubmit={loginHandler}>
-                <Input
-                  label="Username"
-                  input={{
-                    type: 'text',
-                    id: 'username',
-                    value: `${enteredUsername}`,
-                    onChange: usernameChangeHandler,
-                    onBlur: validateUsernameHandler
-                  }}
-                  isValid={usernameIsValid}
-                  validationMessage="Please enter a valid username"
-                />
-                <Input
-                  label="Password"
-                  input={{
-                    type: 'password',
-                    id: 'password',
-                    value: `${enteredPassword}`,
-                    onChange: passwordChangeHandler,
-                    onBlur: validatePasswordHandler
-                  }}
-                  isValid={passwordIsValid}
-                  validationMessage="Please enter a valid password"
-                />
-                <Button
-                  className="primary-btn"
-                  type="submit"
-                  onClick={clickHandler}
-                >
-                  Login
-                </Button>
-              </form>
+            {
+              isLoading ?
+                <BeatLoader css={override} />
+                :
+                <form onSubmit={loginHandler}>
+                  <Input
+                    label="Username"
+                    input={{
+                      type: 'text',
+                      id: 'username',
+                      value: `${enteredUsername}`,
+                      onChange: usernameChangeHandler,
+                      onBlur: validateUsernameHandler
+                    }}
+                    isValid={usernameIsValid}
+                    validationMessage="Please enter a valid username"
+                  />
+                  <Input
+                    label="Password"
+                    input={{
+                      type: 'password',
+                      id: 'password',
+                      value: `${enteredPassword}`,
+                      onChange: passwordChangeHandler,
+                      onBlur: validatePasswordHandler
+                    }}
+                    isValid={passwordIsValid}
+                    validationMessage="Please enter a valid password"
+                  />
+                  <Button
+                    className="primary-btn"
+                    type="submit"
+                    onClick={clickHandler}
+                  >
+                    Login
+                  </Button>
+                </form>
             }
           </Card>
         </Container>

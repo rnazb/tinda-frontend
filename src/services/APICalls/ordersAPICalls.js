@@ -56,7 +56,7 @@ export const getTransactionHistory = async (userId) => {
 export const placeOrder = async (orderList) => {
   return await axios({
     method: 'POST',
-    url: `${callURL}:4000/api/orders`,
+    url: `${callURL}/api/orders`,
     data: orderList,
     headers: {
       'Content-Type': 'application/json'
