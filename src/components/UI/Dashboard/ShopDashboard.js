@@ -112,8 +112,10 @@ const ShopDashboard = () => {
       fourthQuarterRevenue += orderValue;
     }
 
-    const fulfillOrderHandler = async () => {
+    const fulfillOrderHandler = async (event) => {
+      event.preventDefault();
       await fulfillOrder(id, orderItem.id);
+      window.location.reload(false);
     };
 
     return (
