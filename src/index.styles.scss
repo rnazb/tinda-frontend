@@ -11,12 +11,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   background-color: #fafafa !important;
 }
 
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   top: 0;
 }
