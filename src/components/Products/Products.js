@@ -22,15 +22,16 @@ const override = css`
 const Products = () => {
   const [products, setProducts] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const loadProducts = async () => {
+      setIsLoading(true);
       const loadedProducts = await getProducts();
-      setProducts(loadedProducts)
+      setProducts(loadedProducts);
+      setIsLoading(false);
     };
     loadProducts();
-    setIsLoading(false);
   }, []);
 
   const productsList = products.map(productItem => {
