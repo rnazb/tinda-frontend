@@ -58,9 +58,6 @@ export const placeOrder = async (orderList) => {
     method: 'POST',
     url: `${callURL}/api/orders`,
     data: orderList,
-    headers: {
-      'Content-Type': 'application/json'
-    },
     withCredentials: true
   });
 };
